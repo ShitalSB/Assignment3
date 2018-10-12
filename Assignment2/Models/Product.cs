@@ -11,5 +11,6 @@ namespace Assignment2.Models
         public string Name { get; set; }
         public int Quantity { get; set; }
         public double price { get; set; }
+        public virtual ICollection<Sale> Sales { get; set; }
     }
 }
