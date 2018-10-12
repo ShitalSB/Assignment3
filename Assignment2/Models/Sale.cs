@@ -18,7 +18,7 @@ namespace Assignment2.Models
 
         public virtual ICollection<Product> Prodcuts { get; set; }
 
-        public int? SaleMakerId { get; set; }
+        public int SaleMakerId { get; set; }
         public virtual Employee SaleMaker { get; set; }
 
         public int? SaleAproverId { get; set; }

@@ -32,6 +32,10 @@ namespace Assignment2.Migrations
             context.StoreLocations.AddOrUpdate(
                new Models.StoreLocation() { Id = 1,LocationName="South"  }
             );
+            context.Sales.AddOrUpdate(
+              new Models.Sale() { Id = 1, Date= DateTime.Now , SaleAproverId=1,SaleCustomerId=1,SaleStoreLocationId=1,SaleMakerId=1 }
+           );
+            context.SaveChanges();
         }
     }
 }
