@@ -1,5 +1,8 @@
 namespace Assignment2.Migrations
 {
+    using Assignment2.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,10 +17,21 @@ namespace Assignment2.Migrations
 
         protected override void Seed(Assignment2.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            context.Customers.AddOrUpdate(
+               new Models.Customer() { Id = 1, Name = "Shital",Email="ssbhutiya@gmail.com" }
+            );
+            context.Employees.AddOrUpdate(
+               new Models.Employee() { Id = 1, Name = "Jass", RegistrationNumber =123456 }
+            );
+            context.Products.AddOrUpdate(
+               new Models.Product() { Id = 1, Name = "Mouse", Quantity=10,price=123 }
+            );
+            context.StoreLocations.AddOrUpdate(
+               new Models.StoreLocation() { Id = 1,LocationName="South"  }
+            );
         }
     }
 }
