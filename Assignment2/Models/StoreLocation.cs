@@ -11,5 +11,10 @@ namespace Assignment2.Models
         public string LocationName { get; set; }
 
         public virtual ICollection<Sale> Sales { get; set; }
+
+        public StoreLocation()
+        {
+            Sales = new HashSet<Sale>();
+        }
     }
 }

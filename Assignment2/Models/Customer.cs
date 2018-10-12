@@ -12,5 +12,10 @@ namespace Assignment2.Models
         public string Email { get; set; }
 
         public virtual ICollection<Sale> Sales { get; set; }
+
+        public Customer()
+        {
+            Sales = new HashSet<Sale>();
+        }
     }
 }

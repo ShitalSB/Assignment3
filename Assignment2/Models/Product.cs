@@ -12,5 +12,10 @@ namespace Assignment2.Models
         public int Quantity { get; set; }
         public double price { get; set; }
         public virtual ICollection<Sale> Sales { get; set; }
+
+        public Product()
+        {
+            Sales = new HashSet<Sale>();
+        }
     }
 }
